@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crystal Counter</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="text-center">Crystal Counter</h1>
+    <h3 class="text-center">A Guessing Game</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- Calculator Panel -->
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Chyrstals</h3>
+                </div>
+
+                <div class="panel-body">
+                            <button id="button1" class="btn btn-primary number" value=0><h1>Crystal 1</h1></button>
+                            <button id="button2" class="btn btn-primary number" value=1><h1>Crystal 2</h1></button>
+                            <button id="button3" class="btn btn-primary number" value=2><h1>Crystal 3</h1></button>
+                            <button id="button3" class="btn btn-primary number" value=3><h1>Crystal 4</h1></button>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="col-lg-6">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Result</h3>
+                </div>
+                <div class="panel-body">
+                    <h1 id="number"></h1>
+                    <h1 id="result"></h1>
+                    <h1 id="wins"></h1>
+                    <h1 id="losses"></h1>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var number = 19 + Math.floor((Math.random()*(101)));// Number guessed by Computer
+    var guess = new Array(4); // Array of size 4 declared for 4 crystals
+    for (var i = 0; i < guess.length; i++){
+        guess[i] = 1 + Math.floor((Math.random()*(11))); // set the value for crystal (i+1)
+    }
+    var result = 0; // sum of guesses so far
+    var wins = 0; // # of wins so far
+    var losses = 0; // # of losses so far
+
+    console.log(number, result, wins, losses); 
+    // Print to device the starting status of the game
+    $("#number").html("Number to Guess: " + number);
+    $("#result").html("Your result so far: " + result);
+    $("#wins").html("Wins: " + wins);
+    $("#losses").html("Losses: " + losses);
+
+    // Check if any button is clicked...
+    $('button').on("click", function() {
+        var i = $(this).attr("value") // i-th crystal clicked
+        result += guess[i]; // result updated with i-th crystal click
+        if (result >= number) { // current game over with win or loss
+            if (result == number) wins++; // exact match. So win.
+            else losses++; // result exceeds number.  So loss.
+            // refresh with new number, guess array and initial result set to zero.
+            number = 19 + Math.floor((Math.random()*(101)));
+            for (var i = 0; i < guess.length; i++){
+                guess[i] = 1 + Math.floor((Math.random()*(11)));
+            }
+            result = 0;
+        }
+        console.log(number, result, wins, losses);
+        // Print to device the updated status of the game
+        $("#number").html("Number to Guess: " + number);
+        $("#result").html("Your result so far: " + result);
+        $("#wins").html("Wins: " + wins);
+        $("#losses").html("Losses: " + losses);
+
+    })
+})
+</script>
+  
+</body>
+</html>
