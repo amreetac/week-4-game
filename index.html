@@ -10,12 +10,14 @@
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 <body>
 
 <div class="jumbotron">
     <h1 class="text-center">Crystal Counter</h1>
-    <h3 class="text-center">A Guessing Game</h3>
 </div>
 
 <div class="container">
@@ -26,22 +28,66 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Chyrstals</h3>
+                    <h3 class="panel-title">Crystals</h3>
                 </div>
 
                 <div class="panel-body">
-                            <button id="button1" class="btn btn-primary number" value=0><h1>Crystal 1</h1></button>
-                            <button id="button2" class="btn btn-primary number" value=1><h1>Crystal 2</h1></button>
-                            <button id="button3" class="btn btn-primary number" value=2><h1>Crystal 3</h1></button>
-                            <button id="button3" class="btn btn-primary number" value=3><h1>Crystal 4</h1></button>
+
+                            <input type="image" value=0 class="btTxt submit"  id="button5" src="assets/images/crystal1.jpg" alt="button1" style="width:100px;height:75px;"/>
+                            <input type="image" value=1 class="btTxt submit"  id="button5" src="assets/images/crystal2.jpg" alt="button1" style="width:100px;height:75px;"/>
+                            <input type="image" value=2 class="btTxt submit"  id="button5" src="assets/images/crystal3.jpg" alt="button1" style="width:100px;height:75px;"/>
+                            <input type="image" value=3 class="btTxt submit"  id="button5" src="assets/images/crystal4.jpg" alt="button1" style="width:100px;height:75px;"/>
+                            
 
 
                 </div>
             </div>
         </div>
 
-        <!-- Result Panel -->
+        <!-- Instruction Panel -->
         <div class="col-lg-6">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Instructions</h3>
+                </div>
+                <div class="panel-body">
+                    <p> You will be given a random
+                    number at the start of the game.
+                    <br>
+
+                    There are four crystals on the side. By clicking on a crystal,
+                    you will add a specific amount
+                    of points to your total score.
+
+                    <br>
+
+                    You win the game by matching
+                    you total score to the random number. You lose the game if you go over the random number.
+
+                    <br>
+
+                    The value of each crystal is hidden from you until you
+                    click on it.
+
+                    <br>
+
+                    Each time the game starts, the game will change the values of 
+                    the crystals.
+
+                    <br> 
+
+                    Good luck! </p>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+        <div class= "container">
+        <div class = "row">
+
+        <!-- Result Panel -->
+        <div class="col-lg-4">
         <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Result</h3>
@@ -76,12 +122,18 @@ $(document).ready(function(){
     $("#losses").html("Losses: " + losses);
 
     // Check if any button is clicked...
-    $('button').on("click", function() {
+    $('input').on("click", function() {
         var i = $(this).attr("value") // i-th crystal clicked
         result += guess[i]; // result updated with i-th crystal click
         if (result >= number) { // current game over with win or loss
-            if (result == number) wins++; // exact match. So win.
-            else losses++; // result exceeds number.  So loss.
+            if (result == number) {
+            wins++;
+            alert("Yay! You won!!");
+            } // exact match. So win.
+            else {
+            losses++;
+            alert("Better luck next time!");
+            } // result exceeds number.  So loss.
             // refresh with new number, guess array and initial result set to zero.
             number = 19 + Math.floor((Math.random()*(101)));
             for (var i = 0; i < guess.length; i++){
