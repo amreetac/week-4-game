@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Crystal Counter</title>
+    <head>
+    <meta charset="UTF-8">
+    <title>Crystal Counter</title>
 
   <!-- Added link to the jQuery Library -->
-  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -13,96 +13,124 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-</head>
-<body>
+    </head>
+    <body>
 
-<div class="jumbotron">
-    <h1 class="text-center">Crystal Counter</h1>
-</div>
+        <div class="container1">
+            <h2 class="text-left">Crystals Collector!</h2>
+        </div>
 
-<div class="container">
-
-    <div class="row">
-
-        <!-- Calculator Panel -->
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Crystals</h3>
-                </div>
-
-                <div class="panel-body">
-
-                            <input type="image" value=0 class="btTxt_submit"  id="button5" src="assets/images/crystal1.jpg" alt="button1" style="width:100px;height:75px;"/>
-                            <input type="image" value=1 class="btTxt_submit"  id="button5" src="assets/images/crystal2.jpg" alt="button1" style="width:100px;height:75px;"/>
-                            <input type="image" value=2 class="btTxt_submit"  id="button5" src="assets/images/crystal3.jpg" alt="button1" style="width:100px;height:75px;"/>
-                            <input type="image" value=3 class="btTxt_submit"  id="button5" src="assets/images/crystal4.jpg" alt="button1" style="width:100px;height:75px;"/>
-                            
+            <br>
 
 
-                </div>
+
+            </br>
+
+        <div class="container">
+
+        <!-- Instruction Panel -->
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p> You will be given a random
+                        number at the start of the game.
+                            <br>
+
+                        There are four crystals on the side. By clicking on a crystal,
+                        you will add a specific amount
+                        of points to your total score.
+
+                            <br>
+
+                        You win the game by matching
+                        you total score to the random number. You lose the game if you go over the random number.
+
+                            <br>
+
+                        The value of each crystal is hidden from you until you
+                        click on it.
+
+                            <br>
+
+                        Each time the game starts, the game will change the values of 
+                        the crystals.
+
+                            <br> 
+
+                        Good luck! </p>
+                    </div>
+                </div>    
             </div>
         </div>
 
-        <!-- Instruction Panel -->
-        <div class="col-lg-6">
-        <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Instructions</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="image" value=0 class="btTxt_submit"  id="button5" src="assets/images/crystal1.jpg" alt="button1" style="width:100px;height:75px;"/>
                 </div>
-                <div class="panel-body">
-                    <p> You will be given a random
-                    number at the start of the game.
-                    <br>
 
-                    There are four crystals on the side. By clicking on a crystal,
-                    you will add a specific amount
-                    of points to your total score.
-
-                    <br>
-
-                    You win the game by matching
-                    you total score to the random number. You lose the game if you go over the random number.
-
-                    <br>
-
-                    The value of each crystal is hidden from you until you
-                    click on it.
-
-                    <br>
-
-                    Each time the game starts, the game will change the values of 
-                    the crystals.
-
-                    <br> 
-
-                    Good luck! </p>
+                <div class="col-md-3">
+                    <input type="image" value=1 class="btTxt_submit"  id="button5" src="assets/images/crystal2.jpg" alt="button1" style="width:100px;height:75px;"/>
                 </div>
-            </div>    
-        </div>
-    </div>
-</div>
+
+                <div class="col-md-3">
+                    <input type="image" value=2 class="btTxt_submit"  id="button5" src="assets/images/crystal3.jpg" alt="button1" style="width:100px;height:75px;"/>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="image" value=3 class="btTxt_submit"  id="button5" src="assets/images/crystal4.jpg" alt="button1" style="width:100px;height:75px;"/>
+                </div>
+                            
+            </div>
+
+                <br>
+
+                </br>
 
         <div class= "container">
-        <div class = "row">
+            <div class = "row">
 
         <!-- Result Panel -->
-        <div class="col-lg-4">
-        <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Result</h3>
+                <div class="col-lg-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        </div>
+                    <div class="panel-body">
+                        <h1 id="wins"></h1>
+                        <h1 id="losses"></h1>
+                    </div>
+                    </div>    
                 </div>
-                <div class="panel-body">
-                    <h1 id="number"></h1>
-                    <h1 id="result"></h1>
-                    <h1 id="wins"></h1>
-                    <h1 id="losses"></h1>
+                <div class="col-lg-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        </div>
+                     <div class="panel-body">
+                        <h1 id="number"></h1>
+                    </div>
+                    </div>    
                 </div>
-            </div>    
-        </div>
-    </div>
-    </div>
+                <div class="col-lg-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        </div>
+                    <div class="panel-body">
+                        <p> Your total score is: </p>
+                    </div>
+                    </div>    
+                </div>
+                <div class="col-lg-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        </div>
+                    <div class="panel-body">
+                        <h1 id="result"></h1>
+                    </div>
+                    </div>    
+                </div>
 
+
+        </div>
+    
 
 
 
