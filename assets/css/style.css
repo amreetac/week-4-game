@@ -12,6 +12,12 @@ body {
 
 }
 
+.container {
+	background: #D6046D;
+	color: white;
+	width: 50%;
+}
+
 .btTxt_submit {
   animation: blinker 1s linear infinite;
 }
@@ -31,4 +37,11 @@ body {
 	box-shadow: 0 0 10px #ccc; 
 } 
 
-
+.result1 {
+	  width: 40%;
+    background: #D490C8;
+    margin: 25px 0 0 25px;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    color: #fff;
+    font-size: 24px;
+}
